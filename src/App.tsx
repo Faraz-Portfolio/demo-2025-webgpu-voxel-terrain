@@ -31,13 +31,11 @@ export default function App() {
   return (
     <>
       <Canvas
-        gl={(canvas: any) =>
-          new THREE.WebGPURenderer({
-            canvas,
-            antialias: true,
-            alpha: true,
-          })
-        }
+        gl={async (props) => {
+          const renderer = new THREE.WebGPURenderer(props as any);
+          await renderer.init();
+          return renderer;
+        }}
         camera={{ fov: 50, position: [0, 300, -85] }}
         onCreated={(state) => {
           state.setSize(window.innerWidth, window.innerHeight);
@@ -47,7 +45,7 @@ export default function App() {
         <PerspectiveCamera position={[2, 1, 2]} makeDefault />
 
         <Environment
-          files={"/venice_sunset_1k (1).hdr"}
+          files={"/demo-2023-r3f-webgpu/venice_sunset_1k (1).hdr"}
           background
           blur={0.4}
         />
