@@ -10,7 +10,6 @@ import * as THREE from "three/webgpu";
 import { MeshBasicNodeMaterial, MeshStandardNodeMaterial } from "three/webgpu";
 
 import { Model } from "./Model";
-import { UI } from "./UI";
 
 extend({ MeshBasicNodeMaterial, MeshStandardNodeMaterial });
 
@@ -55,7 +54,6 @@ export default function App() {
           <Thing />
         </Bounds>
       </Canvas>
-      <UI />
     </>
   );
 }
