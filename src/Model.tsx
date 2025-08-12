@@ -6,7 +6,7 @@ import { useGLTF } from "@react-three/drei";
 
 export function Model() {
   const { nodes, materials } = useGLTF(
-    "/demo-2023-r3f-webgpu/helmet.glb"
+    import.meta.env.BASE_URL + "helmet.glb"
   ) as any;
   return (
     <group dispose={null}>
